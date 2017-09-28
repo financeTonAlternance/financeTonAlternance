@@ -8,15 +8,6 @@
 		mixpanel.init("7935b8c2f935489c5f7be299f1571e06");
 	</script>
 <!-- end Mixpanel -->
-	<script>
-	mixpanel.identify("00001");
-mixpanel.people.set({
-	"$first_name": "Hugo",
-	"$last_name": "FAUCHERY",
-	"$created": "2017-09-28T10:22:00",
-	"$email": "hugo.fauchery@gmail.com"
-});
-	</script>
 
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -39,6 +30,17 @@ mixpanel.people.set({
     function myFunction() {
         $('.carousel').carousel();
     }
+
+		function getEmail(email) {
+			console.log("On entre dans la fonction");
+			mixpanel.identify("00002");
+			mixpanel.people.set({
+				"$first_name": "",
+				"$last_name": "",
+				"$created": "",
+				"$email": email
+			});
+		}
     </script>
 </head>
 
@@ -142,16 +144,16 @@ mixpanel.people.set({
                         <form class="form-inline" role="form">
                           <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                            <input type="email" class="form-control transparent" placeholder="E-mail...">
+                            <input id="inputEmail" type="email" class="form-control transparent" placeholder="E-mail...">
                           </div>
-                          <button type="submit" class="btn btn-danger btn-fill">Envoyer</button>
+                          <button action="getEmail(#inputEmail.value)" type="submit" class="btn btn-danger btn-fill">Envoyer</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="content">
 
@@ -166,7 +168,7 @@ mixpanel.people.set({
 				    	<p style="text-align:justify"><span style="font-family:arial,helvetica,sans-serif"><span style="color:#FFFFFF"><span style="font-size:16px">Nous avons compilé des données statistiques et comportementales qui vous permettrons de saisir l'importance et le besoin de l'inbound marketing dans votre stratégie</span></span></span></p>
 				    </div>
 		        </div>
-		    
+
 		        <div class="col-sm-4 col-md-4 col-xl-4">
 		            <div style="text-align: center; position: relative;" ><h2><span style="font-family:arial,helvetica,sans-serif"><span style="color:#FFFFFF">Simulation</span></span></h2>
 					</div>
@@ -178,7 +180,7 @@ mixpanel.people.set({
 				    <p style="text-align:justify"><span style="font-family:arial,helvetica,sans-serif"><span style="color:#FFFFFF"><span style="font-size:16px">Une stratégie d'inbound marketing nécessite de faire maturer vos prospects. Découvrez les 4 palliers à suivre afin d'atteindre vos objectfis de génération de leads</span></span></span></p>
 				    </div>
 		        </div>
-		    
+
 		        <div class="col-sm-4 col-md-4 col-xl-4">
 		            <div style="text-align: center; position: relative;"><h2><span style="font-family:arial,helvetica,sans-serif"><span style="color:#FFFFFF">Démarches</span></span></h2>
 					</div>
@@ -202,7 +204,7 @@ mixpanel.people.set({
 	    </div>
 
 	</div>
-    
+
 <! --		Bourse : 5551€
 				APL : 2880€
 				Mobili-jeune : 1200€
