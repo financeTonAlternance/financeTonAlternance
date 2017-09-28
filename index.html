@@ -27,13 +27,14 @@
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
     <script>
+
     function myFunction() {
         $('.carousel').carousel();
     }
 
 		function getEmail(email) {
 			console.log("On entre dans la fonction");
-			mixpanel.identify("00002");
+			mixpanel.identify();
 			mixpanel.people.set({
 				"$first_name": "",
 				"$last_name": "",
@@ -146,7 +147,7 @@
                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
                             <input id="inputEmail" type="email" class="form-control transparent" placeholder="E-mail...">
                           </div>
-                          <button onclick="getEmail(document.getElementById(inputEmail.value))" type="submit" class="btn btn-danger btn-fill">Envoyer</button>
+                          <button onclick="getEmail(document.getElementById('inputEmail').value)" type="submit" class="btn btn-danger btn-fill">Envoyer</button>
                         </form>
                     </div>
                 </div>
