@@ -40,6 +40,7 @@
 	    		    });
 	    	   		mixpanel.track("user email");
 	    	   		alert('Votre adresse mail a bien été prise en compte');	
+			    	$("#input-email")[0].value = "";
 			    } else {
 			    	alert('Il semble que cette adresse ne soit pas correcte');
 			    }
