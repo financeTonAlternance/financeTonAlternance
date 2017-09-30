@@ -344,8 +344,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 /*           Navigation Bar             */
 .navbar{
     border: 0 none;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
+    
     font-size: 16px;
 }
 .navbar-default {
@@ -776,22 +775,6 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     z-index: 1;
 }
 
-.footer{
-    position: relative;
-    bottom: 20px;
-    right: 0px;
-    width: 100%;
-    color: #AAAAAA;
-    z-index: 4;
-    text-align: right;
-    margin-top: 50px;
-}
-.footer a{
-    color: #FFFFFF;
-}
-.footer .heart{
-    color: #FF3B30;
-}
 
 @media (min-width:219px){        
     .main .subscribe .form-group{
