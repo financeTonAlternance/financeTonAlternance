@@ -21,19 +21,28 @@
 	<link href="css/creative.min.css" rel="stylesheet" />
     
 
-	<script src="js/creative.min.js" type="text/javascript"></script>
 	<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
    	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
+		function isEmail(email) {
+			var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			return regex.test(email);
+		}
 	   	$(function(){
 	   		mixpanel.track("user connection");
 			$("#btn-email").click(function(event) {
 			    event.preventDefault();
-			    mixpanel.identify();
-			    mixpanel.people.set({
-			        "$email": $("#input-email")[0].value
-			    });
-		   		mixpanel.track("user email");
+			    var inputEmail = $("#input-email")[0].value;
+			    if(isEmail(inputEmail)){
+	    		    mixpanel.identify();
+	    		    mixpanel.people.set({
+	    		        "$email": inputEmail
+	    		    });
+	    	   		mixpanel.track("user email");
+	    	   		alert('Votre adresse mail a bien été prise en compte');	
+			    } else {
+			    	alert('Il semble que cette adresse ne soit pas correcte');
+			    }
 			})
 	   	});
 
@@ -130,11 +139,6 @@
 	                    <i class="fa fa-twitter"></i>
 	                </a>
 	            </li>
-	             <li>
-	                <a href="#">
-	                    <i class="fa fa-envelope-o"></i>
-	                </a>
-	            </li>
 	       </ul>
 
 	    </div><!-- /.navbar-collapse -->
@@ -165,7 +169,7 @@
 	                        <form class="form-inline" role="form">
 	                          <div class="form-group">
 	                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-	                            <input id="input-email" type="email" class="form-control transparent" placeholder="E-mail...">
+	                            <input id="input-email" class="form-control transparent" placeholder="E-mail...">
 	                          </div>
 	                          <button id="btn-email" type="submit" class="btn btn-danger btn-fill">Envoyer</button>
 
